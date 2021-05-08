@@ -5,12 +5,14 @@ body {
   overflow-x: hidden;
   color: #000;
   font-size: 16px;
+  height: 100vh;
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
   color: inherit;
   transition: opacity .2s ease;
+
 }
 
 a:hover {
