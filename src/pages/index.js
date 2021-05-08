@@ -7,6 +7,30 @@ import indexStyles from "../styles/pages/index.module.scss"
 
 export default function IndexPage() {
   const { title, description } = useSiteMetadata()
+  let ticking = false
+  let vh 
+  function update() {
+    // reset the tick so we can
+
+    // capture the next onScroll
+    ticking = false;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+
+  }
+  
+  function onResize() {
+    vh = window.innerHeight * 0.01;
+    requestTick();
+  }
+  function requestTick() {
+    if(!ticking) {
+      requestAnimationFrame(update);
+    }
+    ticking = true;
+  }
+  
+   window.addEventListener('resize', onResize, false);
 
   return (
     <section className={indexStyles.layout} >
@@ -25,7 +49,7 @@ export default function IndexPage() {
             <p>instagram</p>
           </a>
           </div>
-         <div>
+         <div >
            <p>Contact Me</p>
            <a href="mailto:work@lastnight.online">work@lastnight.online</a>
 
